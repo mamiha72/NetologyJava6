@@ -3,8 +3,6 @@ package ru.netology.stats;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class StatsServiceTest {
     @Test
     public void salesSummTest() {
@@ -19,10 +17,11 @@ class StatsServiceTest {
         Assertions.assertEquals(expected, actual);
 
     }
+
     @Test
     public void salesAverageSummTest() {
         // long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, /* 14, 14, 18 */}
-        long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18 };
+        long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
         StatsService service = new StatsService();
 
@@ -56,4 +55,30 @@ class StatsServiceTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
+    @Test
+    public void belowAverageMonths() {
+        long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+
+        StatsService service = new StatsService();
+
+        int expected = 5;
+        int actual = service.belowAverageMonths(sales);
+
+        Assertions.assertEquals(expected, actual);
+
+    }
+
+    @Test
+    public void aboveAverageMonths() {
+        long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+
+        StatsService service = new StatsService();
+
+        int expected = 5;
+        int actual = service.aboveAverageMonths((sales));
+
+        Assertions.assertEquals(expected, actual);
+    }
+
 }
